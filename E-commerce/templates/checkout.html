@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='checkout.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="logo"></div>
+        <div class="account-cart">
+            {% if user_name %}
+                <a href="#" class="account-btn"><i class="fa-solid fa-user"></i></a>
+                <span class="user-name">{{ user_name }}</span>
+            {% endif %}
+            <a href="{{ url_for('cart_page') }}" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </header>
+
+    <!-- Checkout Section -->
+    <div class="checkout-container">
+        <h1>Checkout</h1>
+        <form action="{{ url_for('checkout') }}" method="POST">
+            <label for="address">Shipping Address:</label>
+            <input type="text" id="address" name="address" required>
+            
+            <label for="payment">Payment Method:</label>
+            <select id="payment" name="payment">
+                <option value="card">Credit/Debit Card</option>
+                <option value="upi">UPI</option>
+                <option value="net">Net Banking</option>
+                <option value="paypal">PayPal</option>
+            </select>
+            <button type="submit">Complete Purchase</button>
+        </form>
+        <div class="nav-links">
+            <a href="{{ url_for('cart_page') }}">Back to Cart</a>
+            <a href="{{ url_for('home') }}">Continue Shopping</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-section">
+            <a href="#">Contact</a>
+            <a href="#">FAQ</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Store Policies</a>
+            <a href="#">Join Our Community</a>
+        </div>
+    </footer>
+</body>
+</html>

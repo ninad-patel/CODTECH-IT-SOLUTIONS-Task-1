@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wash N Care</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"></div>
+            <div class="search-bar">
+                <select>
+                    <option>All</option>
+                    <option>Face Wash</option>
+                    <option>Body Wash</option>
+                    <option>Hand Wash</option>
+                    <option>Shampoo</option>
+                </select>
+                <input type="text" placeholder="Search for your product...">
+                <div class="search-icon">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+            <div class="account-cart">
+                <div class="account-menu">
+                    <a class="account-btn"><i class="fa-solid fa-user"></i></a>
+                    <div class="overlay">
+                        <ul>
+                            {% if user_name %}
+                                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                            {% else %}
+                                <li><a href="{{ url_for('login') }}">Sign In</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    {% if user_name %}
+                        <span class="user-name">{{ user_name }}</span>
+                    {% endif %}
+                </div>
+                <a href = "{{ url_for('cart_page') }}" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="product-section">
+            <div class="product-set">
+                <a href = "{{ url_for('product_details', product_id = 1) }}">
+                    <div class="product">
+                        <div class="product-image">
+                            <img src = "{{ url_for('static', filename='1.jpg') }}">
+                        </div>
+                        <span class="product-description">Anti-Hairfall Shampoo</span>
+                    </div>
+                </a>
+                <a href = "{{ url_for('product_details', product_id = 2) }}">
+                    <div class="product">
+                        <div class="product-image">
+                            <img src = "{{ url_for('static', filename='2.jpg') }}">
+                        </div>
+                        <span class="product-description">Natural Protein Shampoo</span>
+                    </div>
+                </a>
+                <a href = "{{ url_for('product_details', product_id = 3) }}">
+                    <div class="product">
+                        <div class="product-image">
+                            <img src = "{{ url_for('static', filename='3.jpg') }}">
+                        </div>
+                        <span class="product-description">Aloe Clary Sage Shampoo</span>
+                    </div>
+                </a>
+                <a href = "{{ url_for('product_details', product_id = 4) }}">
+                    <div class="product">
+                        <div class="product-image">
+                            <img src = "{{ url_for('static', filename='4.jpg') }}">
+                        </div>
+                        <span class="product-description">Red Onion Shampoo</span>
+                    </div>
+                </a>
+            </div>
+            <div class="product-set">
+                <a href = "{{ url_for('product_details', product_id = 5) }}">
+                    <div class="product">
+                        <div class="product-image">
+                            <img src = "{{ url_for('static', filename='5.jpg') }}">
+                        </div>
+                        <span class="product-description">Mamaearth Onion Shampoo</span>
+                    </div>
+                </a>
+                <a href = "{{ url_for('product_details', product_id = 6) }}">
+                    <div class="product">
+                        <div class="product-image">
+                            <img src = "{{ url_for('static', filename='6.jpg') }}">
+                        </div>
+                        <span class="product-description">Oil & Acne Control Face Wash</span>
+                    </div>
+                </a>
+                <a href = "{{ url_for('product_details', product_id = 7) }}">
+                    <div class="product">
+                        <div class="product-image">
+                            <img src = "{{ url_for('static', filename='7.jpg') }}">
+                        </div>
+                        <span class="product-description">Natural Vitamin C Face Wash</span>
+                    </div>
+                </a>
+                <a href = "{{ url_for('product_details', product_id = 8) }}">
+                    <div class="product">
+                        <div class="product-image">
+                            <img src = "{{ url_for('static', filename='8.jpg') }}">
+                        </div>
+                        <span class="product-description">Neem Face Wash</span>
+                    </div>
+                </a>
+            </div>
+            <div class="product-set">
+                <a href = "{{ url_for('product_details', product_id = 9) }}">
+                    <div class="product">
+                        <div class="product-image">
+                            <img src = "{{ url_for('static', filename='9.jpg') }}">
+                        </div>
+                        <span class="product-description">Brightening Ubtan Face Wash</span>
+                    </div>
+                </a>
+                <a href = "{{ url_for('product_details', product_id = 10) }}">
+                    <div class="product">
+                        <div class="product-image">
+                            <img src = "{{ url_for('static', filename='10.jpg') }}">
+                        </div>
+                        <span class="product-description">Urvija Aloevera Cleanser</span>
+                    </div>
+                </a>
+                <a href = "{{ url_for('product_details', product_id = 11) }}">
+                    <div class="product">
+                        <div class="product-image">
+                            <img src = "{{ url_for('static', filename='11.jpg') }}">
+                        </div>
+                        <span class="product-description">Lavender & Coconut Milk Soap</span>
+                    </div>
+                </a>
+                <a href = "{{ url_for('product_details', product_id = 12) }}">
+                    <div class="product">
+                        <div class="product-image">
+                            <img src = "{{ url_for('static', filename='12.jpg') }}">
+                        </div>
+                        <span class="product-description">Neev Herbal Charcoal Soap</span>
+                    </div>
+                </a>
+            </div>
+            <div class="product-set">
+                <a href = "{{ url_for('product_details', product_id = 13) }}">
+                    <div class="product">
+                        <div class="product-image">
+                            <img src = "{{ url_for('static', filename='13.jpg') }}">
+                        </div>
+                        <span class="product-description">Neev Kumkumadi Face Scrub Soap</span>
+                    </div>
+                </a>
+                <a href = "{{ url_for('product_details', product_id = 14) }}">
+                    <div class="product">
+                        <div class="product-image">
+                            <img src = "{{ url_for('static', filename='14.jpg') }}">
+                        </div>
+                        <span class="product-description">Natural Soapnut Hand Wash</span>
+                    </div>
+                </a>
+                <a href = "{{ url_for('product_details', product_id = 15) }}">
+                    <div class="product">
+                        <div class="product-image">
+                            <img src = "{{ url_for('static', filename='15.jpg') }}">
+                        </div>
+                        <span class="product-description">Puracy Natural Foaming Hand Soap</span>
+                    </div>
+                </a>
+                <a href = "{{ url_for('product_details', product_id = 16) }}">
+                    <div class="product">
+                        <div class="product-image">
+                            <img src = "{{ url_for('static', filename='16.jpg') }}">
+                        </div>
+                        <span class="product-description">Orange Neem Organic Hand Wash</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>    
+    <footer>
+        <div class="footer-section">
+            <a href="#">Contact Us</a>
+            <a href="#">FAQ</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Store Policies</a>
+            <a href="#">Join Our Community</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='cart.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="logo"></div>
+        <div class="account-cart">
+            {% if user_name %}
+                <a href="#" class="account-btn"><i class="fa-solid fa-user"></i></a>
+                <span class="user-name">{{ user_name }}</span>
+            {% endif %}
+            <a href="{{ url_for('cart_page') }}" class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </header>
+
+    <!-- Cart Section -->
+    <div class="cart-container">
+        <h1>Your Shopping Cart</h1>
+        {% if cart_products %}
+            {% for product in cart_products %}
+                <div class="cart-item">
+                    <img src="{{ url_for('static', filename=product[4]) }}" alt="{{ product[1] }}">
+                    <div class="cart-item-details">
+                        <h3>{{ product[1] }}</h3>
+                        <p>Price: ₹{{ product[2] }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+            <a href="{{ url_for('checkout') }}" class="checkout-btn">Proceed to Checkout</a>
+        {% else %}
+            <p>Your cart is empty!</p>
+        {% endif %}
+        <a href="{{ url_for('home') }}" class="continue-shopping">Continue Shopping</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-section">
+            <a href="#">Contact</a>
+            <a href="#">FAQ</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Store Policies</a>
+            <a href="#">Join Our Community</a>
+        </div>
+    </footer>
+</body>
+</html>
