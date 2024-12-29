@@ -1,6 +1,7 @@
 # CODTECH-IT-SOLUTIONS-Task-1
 
-Project Overview
+Project Overview:-
+
 It is an e-commerce website that enables user to browse products, add items to a shopping cart, and complete purchases. It is developed using html and css for front-end and python and flask framework for back-end. All the features and functionality of the website are as follows:
 
 1. First of all, home page appear which consists of navbar with logo, search bar and cart and account icons, main page with the products' image and description and a footer with about us and contact us details.
